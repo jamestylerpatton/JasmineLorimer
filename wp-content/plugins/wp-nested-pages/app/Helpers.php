@@ -7,21 +7,12 @@ namespace NestedPages;
 class Helpers 
 {
 	/**
-	* Verify URL Format
-	* @param string - URL to check
-	* @return string - formatted URL
-	*/
-	public static function check_url($url)
-	{
-		return esc_url($url);
-	}
-
-	/**
 	* Plugin Root Directory
 	*/
 	public static function plugin_url()
 	{
-		return plugins_url('/', NESTEDPAGES_URI);
+		$url = plugins_url('/', NESTEDPAGES_URI);
+		return rtrim($url, '/');
 	}
 
 	/**
@@ -30,6 +21,14 @@ class Helpers
 	public static function view($file)
 	{
 		return dirname(__FILE__) . '/Views/' . $file . '.php';
+	}
+
+	/**
+	* Asset
+	*/
+	public static function asset($file)
+	{
+		return dirname(dirname(__FILE__)) . '/assets/' . $file;
 	}
 
 	/**
