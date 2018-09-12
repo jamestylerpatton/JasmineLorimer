@@ -1,0 +1,17 @@
+nav#footer-nav{
+    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+    border-top: 2px solid darken($white, 5%);
+    border-bottom: 2px solid darken($white, 5%);
+    h1{
+        margin: 0;
+    }
+}
+.subfooter{
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-family: $font-family-sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6d787d;
+}

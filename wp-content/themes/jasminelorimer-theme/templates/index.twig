@@ -1,11 +1,38 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>{{ foo }}</h2>
-	<p>{{ qux }}</p>
-	{% for post in posts %}
+    <div class="section teasers">
+        <div class="container">
+            <div class="row">
+                {% for item in 1..3 %}
+                    <div class="col item">
+                        <div class="item-inner">
+                            test
+                            {# image #}
+                            {# category #}
+                            {# title #}
+                            {# excerpt #}
+                            {# read more #}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section tutorials">
+        <div class="container">
+            <div class="row item">
+                <div class="col">
+                    test
+                </div>
+            </div>
+        </div>
+    </div>
+
+	{# {% for post in posts %}
 		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
 	{% endfor %}
-	
-	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+
+	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %} #}
 {% endblock %}

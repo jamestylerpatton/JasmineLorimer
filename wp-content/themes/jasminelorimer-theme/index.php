@@ -14,9 +14,31 @@
  */
 $context = Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
-$context['foo'] = 'bar';
+
 $templates = array( 'index.twig' );
+
 if ( is_home() ) {
+    $context['teasers'] = [
+        [
+            'image' => 'teaser-1.png',
+            'title' => 'When nothing is certain, anything is possible',
+            'copy' => 'Quick video on how I get a loose, casual wave with a curling iron. The technique takes some getting used to, but it\'s so easy once you get the hang of it.',
+            'category' => 'Relationships',
+        ],
+        [
+            'image' => 'teaser-2.png',
+            'title' => 'Loose, casual waves',
+            'copy' => 'Quick video on how I get a loose, casual wave with a curling iron. The technique takes some getting used to, but it\'s so easy once you get the hang of it. ',
+            'category' => 'Beauty',
+        ],
+        [
+            'image' => 'teaser-3.png',
+            'title' => 'Ask me anything',
+            'copy' => 'Quick video on how I get a loose, casual wave with a curling iron. The technique takes some getting used to, but it\'s so easy once you get the hang of it. ',
+            'category' => 'Q&A',
+        ],
+    ];
+
 	array_unshift( $templates, 'home.twig' );
 }
 Timber::render( $templates, $context );

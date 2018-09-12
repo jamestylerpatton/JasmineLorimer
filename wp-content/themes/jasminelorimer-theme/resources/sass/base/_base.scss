@@ -1,3 +1,18 @@
 html, body{
     font-size: 15px;
 }
+
+section#content{
+    padding-top: 1rem;
+}
+
+h1{
+    a,
+    a:hover{
+        text-decoration: none;
+    }
+}
+
+img{
+    max-width: 100%;
+}

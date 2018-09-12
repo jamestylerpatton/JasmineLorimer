@@ -1,0 +1,89 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="section teasers mb-5">
+        <div class="container">
+            <div class="row">
+                {% for teaser in teasers %}
+                    <div class="col-sm-4 item text-center">
+                        <div class="item-inner">
+                            <div class="img-container">
+                                <a href="/" class="img">
+                                    <img src="{{theme.link}}/resources/images/test/{{teaser.image}}" alt="{{teaser.title}}">
+                                </a>
+                                <span class="category">{{teaser.category}}</span>
+                            </div>
+                            <div class="text-container">
+                                <h3>{{teaser.title}}</h3>
+                                <p>{{teaser.copy}}</p>
+                                <a href="/" class="btn btn-link">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section tutorials mb-5">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>
+                    <img src="{{theme.link}}/resources/images/hairdryer.png" alt="hairdryer">
+                    The Latest Tutorials
+                    <img src="{{theme.link}}/resources/images/scissors.png" alt="scissors">
+                </h2>
+            </div>
+
+            {% for item in 1..2 %}
+            <div class="row item mb-3">
+                <div class="col-md text-col d-flex align-items-center justify-content-center">
+                    <div class="text-inner text-center">
+                        <h3>Loose, casual waves</h3>
+                        <div class="tags">
+                            <span>Haircare</span>, <span>Tutorial</span>
+                        </div>
+                        <p>Quick video on how I get a loose, casual wave with a curling iron. The technique takes some getting used to, but it's so easy once you get the hang of it. </p>
+                        <a href="/" class="btn btn-link">Watch &#9658;</a>
+                    </div>
+                </div>
+                <div class="col-md img-col">
+                    <div class="img-container">
+                        <a href="/" class="img">
+                            <img src="{{theme.link}}/resources/images/test/tutorial-1.png" alt="Loose, casual waves">
+                        </a>
+                        <span class="category">Beauty</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="mt-4 text-center">
+                <a href="/" class="btn btn-outline">See More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section about mb-5">
+        <div class="row">
+            <div class="col-lg img-col"></div>
+            <div class="col-lg text-col">
+                <div class="text-container">
+                    <div class="text-inner p-5">
+                        <h3>About me</h3>
+                        <p>I'm a small town girl now living in Vancouver, Canada. I'm a professionally trained hair colorist, beauty expert and goat groupie. Oh, and I was the very first Bachelorette Canada.</p>
+                        <a href="/" class="btn btn-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'newsletter.twig' %}
+
+    {# {% for post in posts %}
+        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+    {% endfor %}
+
+    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %} #}
+{% endblock %}
