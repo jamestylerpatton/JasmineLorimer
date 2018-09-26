@@ -77,7 +77,7 @@ class StarterSite extends TimberSite {
 			],
 			[
 				'name' => 'About',
-				'link' => '/',
+				'link' => '/about',
 				'slug' => 'about'
 			]
 		];

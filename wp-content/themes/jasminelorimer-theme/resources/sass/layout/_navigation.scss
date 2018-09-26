@@ -30,5 +30,9 @@ nav.navbar{
 
     h1{
         margin: 0;
+        font-size: 2.5rem;
+        @include media-breakpoint-down(sm) {
+            font-size: 2rem;
+        }
     }
 }
