@@ -2,37 +2,75 @@
 
 {% block content %}
 	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<p class="blog-author">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
 
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
-					{% endfor %}
-				    {% endif %}
-				</div>
+		<div class="container">
+			<div class="breadcrumbs">
+				{# breadcrumbs #}
+			</div>
 
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
-				{% endif %}
-			</section>
-		</article>
+			<div class="row">
+				<div class="col-md-8">
+					<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+						<header>
+							<h1 class="article-h1">{{ post.title }}</h1>
+
+							<div class="socials">
+								<a href="{{ post.link }}" data-sharer="facebook" data-url="{{ post.link }}" class="socialshare facebook"><i class="fa fa-facebook"></i></a>
+								<a href="{{ post.link }}" data-sharer="pinterest" data-url="{{ post.link }}" class="socialshare pinterest"><i class="fa fa-pinterest"></i></a>
+								<a href="{{ post.link }}" data-sharer="twitter" data-title="{{ post.title }}" data-url="{{ post.link }}" class="socialshare twitter"><i class="fa fa-twitter"></i></a>
+								<a href="{{ post.link }}" data-sharer="email" data-title="{{ post.title }}" data-url="{{ post.link }}" data-subject="{{ post.title }}" class="socialshare email"><i class="fa fa-envelope"></i></a>
+							</div>
+						</header>
+
+						<section class="article-content">
+
+							{% if video_url %}
+								<div class="video-embed">
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_url }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+								</div>
+							{% elseif post.thumbnail %}
+								<div class="featured-image">
+									<img src="{{ post.thumbnail.src|resize(1200, 300) }}" alt="{{post.thumbnail.alt}}">
+								</div>
+							{% else %}
+								<hr>
+							{% endif %}
+
+							{# <p class="blog-author">
+								<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
+							</p> #}
+							<div class="row justify-content-center">
+								<div class="col-11">
+									<div class="article-body rte">
+										{{post.content}}
+									</div>
+								</div>
+							</div>
+						</section>
+					</article>
+				</div>
+				<div class="col-md-4">
+					<aside class="sidebar">
+						<div class="trending">
+							<h2><img src="{{theme.link}}/resources/images/trending.png"> Trending</h2>
+
+							{% for test_post in 1..5 %}
+								<div class="trending-post d-flex align-items-center">
+									<div class="post-image">
+										<a href="/"><img src="https://picsum.photos/170/170" alt="Picsum"></a>
+									</div>
+									<div class="post-details">
+										<div class="category"><a href="/">Beauty</a></div>
+										<div class="title"><a href="/">
+											This is just test content, we need more posts
+										</a></div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div> <!-- /container -->
 	</div><!-- /content-wrapper -->
 {% endblock %}

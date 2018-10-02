@@ -13,6 +13,14 @@ $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
 
+if (get_field('video_url')) {
+    $url = get_field('video_url');
+    parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
+    if ($my_array_of_vars['v']) {
+        $context['video_url'] = $my_array_of_vars['v'];
+    }
+}
+
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {

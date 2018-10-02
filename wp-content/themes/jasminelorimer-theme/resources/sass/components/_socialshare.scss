@@ -1,0 +1,37 @@
+.socialshare{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    color: $white;
+    &:hover,
+    &:focus{
+        color: $white;
+    }
+    &.facebook{
+        background-color: #4c76bf;
+        &:hover{
+            background-color: darken(#4c76bf, 10%);
+        }
+    }
+    &.pinterest{
+        background-color: #e54a59;
+        &:hover{
+            background-color: darken(#e54a59, 10%);
+        }
+    }
+    &.twitter{
+        background-color: #71b7f0;
+        &:hover{
+            background-color: darken(#71b7f0, 10%);
+        }
+    }
+    &.email{
+        background-color: #ccf1e1;
+        &:hover{
+            background-color: darken(#ccf1e1, 10%);
+        }
+    }
+}
