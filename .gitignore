@@ -8,4 +8,5 @@ node_modules
 cgi-bin
 **/.sass-cache
 .ftpquota
+.well-known
 wp-admin/error_log
