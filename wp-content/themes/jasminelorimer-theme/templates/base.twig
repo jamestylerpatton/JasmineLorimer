@@ -6,31 +6,35 @@
 	</head>
 {% endblock %}
 
-	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header" >
-			{% block header %}
-				{% include 'partial/navigation.twig' %}
-			{% endblock %}
-		</header>
+	<body class="{{body_class}} slide-container" data-template="base.twig">
+		<div id="app" class="slide-content">
+			{% include 'partial/mobile-navigation.twig' %}
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
+			<header class="header" >
+				{% block header %}
+					{% include 'partial/navigation.twig' %}
 				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
+			</header>
 
-		{% block footer %}
-			{% include 'footer.twig' %}
+			<section id="content" role="main" class="content-wrapper">
+				{% if title %}<h1>{{title}}</h1>{% endif %}
+				<div class="wrapper {{sidebar_class}}">
+					{% block content %}
+						Sorry, no content
+					{% endblock %}
+				</div>
+				{% if sidebar %}
+					<aside class="layout-sidebar">
+						{{sidebar}}
+					</aside>
+				{% endif %}
+			</section>
 
-			{{ function('wp_footer') }}
-		{% endblock %}
+			{% block footer %}
+				{% include 'footer.twig' %}
+
+				{{ function('wp_footer') }}
+			{% endblock %}
+		</div>
 	</body>
 </html>

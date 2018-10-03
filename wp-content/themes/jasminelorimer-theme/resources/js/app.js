@@ -19,3 +19,5 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app'
 // });
+
+require('./nav-slide');
