@@ -72,8 +72,8 @@ class StarterSite extends TimberSite {
 			],
 			[
 				'name' => 'Q&A',
-				'link' => '/',
-				'slug' => 'q-a'
+				'link' => '/qa',
+				'slug' => 'qa'
 			],
 			[
 				'name' => 'About',
