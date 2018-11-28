@@ -7,11 +7,13 @@
 				<div class="container">
 					<h1 class="article-h1 text-center mb-4 mt-4">{{post.title}}</h1>
 
+					{% if post.thumbnail %}
 					<div class="row justify-content-center mb-5">
 						<div class="col-md-8">
 							<img src="{{ post.thumbnail.src }}" class="my-thumb-class" alt="Image for {{ post.title }}" />
 						</div>
 					</div>
+					{% endif %}
 
 					<div class="row justify-content-center">
 						<div class="article-body col-md-7">
