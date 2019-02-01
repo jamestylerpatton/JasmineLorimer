@@ -4,12 +4,12 @@
         height: 80vh;
         background: #eee;
 
-        background-image: url(http://jasminelorimer.test/wp-content/themes/jasminelorimer/resources/images/homepage-banner.jpg);
+        background-image: url(/wp-content/themes/jasminelorimer/resources/images/homepage-banner.jpg);
         background-size: cover;
         background-position: center;
 
         @media (min-width: 1200px) {
-            background-image: url(http://jasminelorimer.test/wp-content/themes/jasminelorimer/resources/images/homepage-bannerx2.jpg);
+            background-image: url(/wp-content/themes/jasminelorimer/resources/images/homepage-bannerx2.jpg);
         }
 
         img.logo{
