@@ -24,7 +24,4 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-
-$context['content'] = TimberHelper::ob_function( 'the_content' );
-
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

@@ -1,0 +1,21 @@
+// Variables
+@import "utils/variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+@import "utils/fonts";
+
+@import "base/base";
+
+// @import "layout/navigation";
+@import "layout/footer";
+
+@import "blocks/header";
+
+// @import "components/buttons";
+// @import "components/forms";
+// @import "components/socialshare";
+
+@import "pages/home";
+// @import "pages/post";

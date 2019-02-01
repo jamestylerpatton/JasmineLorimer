@@ -1,0 +1,13 @@
+#footer{
+    background: darken($white, 10%);
+    padding: 20px 20px;
+    text-align: center;
+    .socials{
+        a{
+            color: $black;
+            display: inline-block;
+            margin: 0 5px;
+            font-size: 1.13rem;
+        }
+    }
+}

@@ -40,10 +40,15 @@ class StarterSite extends Timber\Site {
 	/** Add timber support. */
 	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -60,9 +65,6 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
 		$context['menu'] = new Timber\Menu();
 		$context['site'] = $this;
 		return $context;
@@ -107,13 +109,13 @@ class StarterSite extends Timber\Site {
 		 */
 		add_theme_support(
 			'post-formats', array(
-				'aside',
+				// 'aside',
 				'image',
 				'video',
-				'quote',
-				'link',
-				'gallery',
-				'audio',
+				// 'quote',
+				// 'link',
+				// 'gallery',
+				// 'audio',
 			)
 		);
 
@@ -137,6 +139,16 @@ class StarterSite extends Timber\Site {
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		$twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
 		return $twig;
+	}
+
+	public function load_styles() {
+		wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', null, '4.7.0');
+		wp_enqueue_style('app-styles', get_template_directory_uri() . '/css/style.css', null, '20180426');
+	}
+
+	public function load_scripts() {
+		wp_deregister_script( 'jquery' );
+		wp_enqueue_script('app-scripts', get_template_directory_uri() . '/js/app.js', null, '20180426', true);
 	}
 
 }
