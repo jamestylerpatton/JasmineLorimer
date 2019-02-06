@@ -21,3 +21,16 @@ require('./bootstrap');
 // });
 
 require('./nav-slide');
+
+// Initialize IG Feed
+let Instafeed = require("./vendor/instafeed.js");
+let feed = new Instafeed({
+  target: 'ig-feed',
+  get: 'user',
+  resolution: 'low_resolution',
+  sortBy: 'most-recent',
+  limit: 6,
+  accessToken: '13069122.1677ed0.bb32500f9f6145a2aee0a77939a9c608',
+  template: '<div class="item"><a href="{{link}}" target="_blank"><img title="{{caption}}" src="{{image}}" /></a></div>'
+});
+feed.run();
