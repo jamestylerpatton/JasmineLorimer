@@ -1,0 +1,16 @@
+// Variables
+@import "utils/variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+@import "utils/fonts";
+
+@import "base/base";
+
+@import "layout/footer";
+
+@import "blocks/header";
+@import "blocks/instafeed";
+
+@import "pages/home";
